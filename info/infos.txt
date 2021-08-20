@@ -1,0 +1,6 @@
+login.html ist login page mit link zur profil.html es kann nicht zurück auf die login gehen
+main.html ist eine übersicht übre alles grob
+profil.html ist einfache profilpage
+(ist evt. im main verankert) setup.html ist die seite für die einrichtung der ausgabe und einnahme standart
+createPlan.html ist für erstellen der pläne 
+historyStats.html ist ein überblick über stats der vergangenheit(ob ziele erreicht wurden etc)
