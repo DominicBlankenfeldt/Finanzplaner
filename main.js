@@ -42,6 +42,29 @@ function modalText(id) {
 }
 
 
-// tabellen funktion rechts(ausgaben)
+// neuen Eintrag auf buttonpress
+
+
+function newRow(btn) {
+    let newRowElement = document.createElement("div");
+
+    // newRowElement.classList.add("col-6")
+    // newRowElement.classList.add("row")
+    // newRowElement.innerHTML = 'test'
+    // document.getElementById("linksFinanzBody").appendChild(newRowElement);
+    // // let testInhalt = document.createTextNode("test");
+    // console.log(alg);
+
+    if (btn.innerText === "Einnahmen hinzufügen") {
+
+        newRowElement.classList.add("col-6")
+        newRowElement.classList.add("row")
+        newRowElement.innerHTML = ''
+        document.getElementById("linksFinanzBody").appendChild(newRowElement);
+    }
+
+}
+
+
 
 
