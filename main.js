@@ -108,6 +108,7 @@ function newPlan() {
     newPlanElementName.innerHTML = newPlanName
     newPlanElementName.classList.add("m-auto")
     newPlanElementName.classList.add("d-block")
+    newPlanElementName.setAttribute("id", newPlanName)
     newPlanElement.appendChild(newPlanElementName)
     document.getElementById("carousel-inner").appendChild(newPlanElement)
 
