@@ -111,18 +111,27 @@ function newPlan() {
     newPlanElementName.appendChild(newPlanNameBig)
     newPlanElementName.classList.add("m-auto")
     newPlanElementName.classList.add("d-block")
-    newPlanElementName.setAttribute("id", newPlanName)
+    newPlanElement.setAttribute("id", newPlanName)
     newPlanElement.appendChild(newPlanElementName)
     document.getElementById("carousel-inner").appendChild(newPlanElement)
     newPlanElement.setAttribute("data-toggle", "modal")
     newPlanElement.setAttribute("data-target", "#modalPlanSettings")
+    newPlanElement.onclick = function () {
+        findId = newPlanName;
+    }
 
     console.log("neuer Plan erfolgreich erstellt")
+
+
 }
 
 
 // löschenfunktion für ausgewählten plan
 
-function planLöschen() {
+let findId = null
+
+function planDelete() {
+    document.getElementById(findId)
+    node.parentNode.removeChild()
 
 }
