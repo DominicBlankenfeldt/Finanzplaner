@@ -114,6 +114,8 @@ function newPlan() {
     newPlanElementName.setAttribute("id", newPlanName)
     newPlanElement.appendChild(newPlanElementName)
     document.getElementById("carousel-inner").appendChild(newPlanElement)
+    newPlanElement.setAttribute("data-toggle", "modal")
+    newPlanElement.setAttribute("data-target", "#modalPlanSettings")
 
     console.log("neuer Plan erfolgreich erstellt")
 }
