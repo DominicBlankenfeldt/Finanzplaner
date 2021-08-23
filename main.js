@@ -95,17 +95,20 @@ function newRowMinus() {
 // funktion um neuen plan zu erstellen
 
 function newPlan() {
+
     let newPlanElement = document.createElement("div");
     let newImgForChild = document.createElement("img");
     let newPlanElementName = document.createElement("div");
     let newPlanName = document.getElementById("textName").value
+    let newPlanNameBig = document.createElement("h5")
 
     newPlanElement.classList.add("carousel-item")
     newPlanElement.appendChild(newImgForChild)
     newImgForChild.src = "https://accentsconagua.com/img/images/how-to-build-a-full-screen-responsive-carousel-slider-with-owljs_4.png"
     newImgForChild.classList.add("m-auto")
     newImgForChild.classList.add("d-block")
-    newPlanElementName.innerHTML = newPlanName
+    newPlanNameBig.innerHTML = newPlanName
+    newPlanElementName.appendChild(newPlanNameBig)
     newPlanElementName.classList.add("m-auto")
     newPlanElementName.classList.add("d-block")
     newPlanElementName.setAttribute("id", newPlanName)
