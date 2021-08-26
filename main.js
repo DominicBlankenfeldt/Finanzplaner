@@ -140,7 +140,8 @@ function planEdit() {
 // function zum erstellen von einnahmen
 
 let arrayEinnahmen = []
-let summeArrayEinnahmen
+let summeArrayEinnahmen = 0
+let einnahmenGesamt = 0
 
 function einnahmeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateEinnahmen").value
@@ -181,7 +182,7 @@ function einnahmeMonatHinzufügen() {
     infoPlanNewSumme.innerHTML = "+" + infoPlanSumme + "€"
 
 
-    console.log("eintrag erfolgreich erstellt")
+    console.log("eintrag einnahmen erfolgreich erstellt")
 
     summeArrayEinnahmen = 0
     for (let i = 0; i < arrayEinnahmen.length; i++) {
@@ -191,12 +192,18 @@ function einnahmeMonatHinzufügen() {
 
     document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "+" + summeArrayEinnahmen + "€"
 
+    let summeGesamtBilanz = parseInt(summeArrayEinnahmen) - parseInt(summeArrayAusgaben)
+
+    document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
+
+
 }
 
 // function zum erstellen von ausgaben
 
 let arrayAusgaben = []
 let summeArrayAusgaben = 0
+let gesamtAusgaben = 0
 
 function ausgabeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateAusgaben").value
@@ -237,7 +244,7 @@ function ausgabeMonatHinzufügen() {
     infoPlanNewSumme.innerHTML = "-" + infoPlanSumme + "€"
 
 
-    console.log("eintrag erfolgreich erstellt")
+    console.log("eintrag ausgaben erfolgreich erstellt")
 
     summeArrayAusgaben = 0
     for (let i = 0; i < arrayAusgaben.length; i++) {
@@ -246,6 +253,10 @@ function ausgabeMonatHinzufügen() {
     }
     document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "-" + summeArrayAusgaben + "€"
 
+    let summeGesamtBilanz = parseInt(summeArrayEinnahmen) - parseInt(summeArrayAusgaben)
+
+    document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
 
 }
+
 
