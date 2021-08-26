@@ -136,9 +136,56 @@
                     <p>Bearbeite oder lösche deinen Sparplan.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnEdit">Plan bearbeiten</button>
-                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="planDelete()">Plan
+                    <button type="button" class="btn btn-primary" id="btnEdit" data-dismiss="modal" data-toggle="modal"
+                        data-target="#modalPlanCreateSettings">Plan
+                        bearbeiten</button>
+                    <button type="button" class="btn btn-danger" id="btnDelete" data-dismiss="modal"
+                        onclick="planDelete()">Plan
                         löschen</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal "plan bearbeiten" -->
+
+    <div class="modal fade" id="modalPlanCreateSettings" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelSettings">Plan bearbeiten:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label" id="planNameSettings">Gib deinen Plan
+                                einen
+                                Namen:</label>
+                            <input type="text" class="form-control" id="planNameSettingsValue">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label" id="planSummeSettings">geplante
+                                Summe:</label>
+                            <input type="number" step="0.01" class="form-control" id="planSummeSettingsValue"
+                                placeholder="€">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label" id="planKommentarSettings">Wofür möchtest
+                                du
+                                sparen:</label>
+                            <textarea class="form-control" id="planKommentarSettingsValue"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="änderungenSettings" data-dismiss="modal"
+                        onclick="planEdit()">Änderungen übernehmen</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
                 </div>
             </div>

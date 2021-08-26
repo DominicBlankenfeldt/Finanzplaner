@@ -126,6 +126,7 @@ function newPlan() {
     newImgForChild.classList.add("d-block")
 
     newPlanNameBig0.innerHTML = newPlanName
+    newPlanNameBig0.setAttribute("id", "1a")
     newPlanElementName.appendChild(newPlanDivName)
     newPlanDivName.classList.add("col-4")
     newPlanDivName.innerHTML = "Name:"
@@ -138,12 +139,14 @@ function newPlan() {
     newPlanDivDate.appendChild(newPlanNameBig1)
 
     newPlanNameBig2.innerHTML = newPlanGeld + "€"
+    newPlanNameBig2.setAttribute("id", "2a")
     newPlanElementName.appendChild(newPlanDivGeld)
     newPlanDivGeld.classList.add("col-4")
     newPlanDivGeld.innerHTML = "Sparziel in €:"
     newPlanDivGeld.appendChild(newPlanNameBig2)
 
     newPlanNameBig3.innerHTML = newPlanNotiz
+    newPlanNameBig3.setAttribute("id", "3a")
     newPlanElementName.appendChild(newPlanDivNotiz)
     newPlanDivNotiz.classList.add("col-12")
     newPlanDivNotiz.innerHTML = "Notiz:"
@@ -162,6 +165,8 @@ function newPlan() {
     newProgressBar.appendChild(newProgressBarDivClasses)
     newProgressBarDivClasses.classList.add("progress-bar")
     newProgressBarDivClasses.classList.add("bg-success")
+    newProgressBarDivClasses.classList.add("progress-bar-striped")
+    newProgressBarDivClasses.classList.add("progress-bar-animated")
     newProgressBarDivClasses.setAttribute("role", "progressbar")
     newProgressBarDivClasses.setAttribute("style", "width:")
     newProgressBarDivClasses.setAttribute("aria-valuenow", "")
@@ -187,4 +192,17 @@ function planDelete() {
     node = document.getElementById(findId)
     node.remove()
     console.log("Plan gelöscht")
+}
+
+
+// function für das bearbeiten von Plänen und deren enthaltenen Informationen
+
+function planEdit() {
+    let newPlanNameSettings = document.getElementById("planNameSettingsValue").value
+    let newPlanSummeSettings = document.getElementById("planSummeSettingsValue").value
+    let newPlanNotizSettings = document.getElementById("planKommentarSettingsValue").value
+
+    document.getElementById("1a").innerHTML = newPlanNameSettings
+    document.getElementById("2a").innerHTML = newPlanSummeSettings + "€"
+    document.getElementById("3a").innerHTML = newPlanNotizSettings
 }
