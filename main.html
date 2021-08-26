@@ -156,67 +156,65 @@
     <!-- Finanztabelle -->
 
     <div id="Finanztabelle" class="container">
-        <!-- <div class="row">
-            <div id="income" class="col-6">
-                <h5>Einnahmen</h5> <button type="button" class="btn btn-dark" id="btnEinahmemHinzufügen" onclick=""
-                    data-toggle="modal" data-target="#modalCreatePlus">+</button>
-            </div>
-            <div id="outcome" class="col-6">
-                <h5>Ausgaben</h5> <button type="button" class="btn btn-dark" id="btnAusgabenHinzufügen" onclick=""
-                    data-toggle="modal" data-target="#modalCreateMinus">+</button>
-            </div>
-        </div> -->
-        <table class="table" id="tabelleEinnahmen">
-            <thead class="">
-                <tr>
-                    <th class="bg-success col-9" colspan="3">Einnahmen</th>
-                    <th class="table-success col-3">Gesamt:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="table-success col-3" scope="row">1</th>
-                    <td class="table-success col-3">Mark</td>
-                    <td class="table-success col-3">Otto</td>
-                    <td class="table-success col-3">@mdo</td>
-                </tr>
-                <tr>
-                    <th class="table-success col-3" scope="row">2</th>
-                    <td class="table-success col-3">Jacob</td>
-                    <td class="table-success col-3">Thornton</td>
-                    <td class="table-success col-3">@fat</td>
-                </tr>
-            </tbody>
-        </table>
 
-        <button type="button" class="btn btn-dark" id="btnEinahmemHinzufügen" onclick="" data-toggle="modal"
+        <Div id="FinanztabelleEinnahmen">
+
+            <table class="table" id="tabelleEinnahmen">
+                <thead class="">
+                    <tr>
+                        <th class="bg-success col-9" colspan="3">Einnahmen</th>
+                        <th class="table-success col-3">Gesamt:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="table-success col-3" scope="row">1</th>
+                        <td class="table-success col-3">Mark</td>
+                        <td class="table-success col-3">Otto</td>
+                        <td class="table-success col-3">@mdo</td>
+                    </tr>
+                    <tr>
+                        <th class="table-success col-3" scope="row">2</th>
+                        <td class="table-success col-3">Jacob</td>
+                        <td class="table-success col-3">Thornton</td>
+                        <td class="table-success col-3">@fat</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-success" id="btnEinahmemHinzufügen" onclick="" data-toggle="modal"
+                data-target="#modalCreatePlus">Einnahmen hinzufügen</button>
+
+        </Div>
+
+
+        <Div id="FinanztabelleEinnahmen">
+            <table class="table" id="tabelleAusgaben">
+                <thead class="">
+                    <tr>
+                        <th class="bg-danger col-9" colspan="3">Ausgaben</th>
+                        <th class="table-danger col-3">Gesamt:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="table-danger col-3" scope="row">1</th>
+                        <td class="table-danger col-3">Mark</td>
+                        <td class="table-danger col-3">Otto</td>
+                        <td class="table-danger col-3">@mdo</td>
+                    </tr>
+                    <tr>
+                        <th class="table-danger col-3" scope="row">2</th>
+                        <td class="table-danger col-3">Jacob</td>
+                        <td class="table-danger col-3">Thornton</td>
+                        <td class="table-danger col-3">@fat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button type="button" class="btn btn-danger" id="btnEinahmemHinzufügen" onclick="" data-toggle="modal"
             data-target="#modalCreatePlus">Einnahmen hinzufügen</button>
-
-        <table class="table" id="tabelleAusgaben">
-            <thead class="">
-                <tr>
-                    <th class="bg-danger col-9" colspan="3">Ausgaben</th>
-                    <th class="table-danger col-3">Gesamt:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="table-danger col-3" scope="row">1</th>
-                    <td class="table-danger col-3">Mark</td>
-                    <td class="table-danger col-3">Otto</td>
-                    <td class="table-danger col-3">@mdo</td>
-                </tr>
-                <tr>
-                    <th class="table-danger col-3" scope="row">2</th>
-                    <td class="table-danger col-3">Jacob</td>
-                    <td class="table-danger col-3">Thornton</td>
-                    <td class="table-danger col-3">@fat</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-
 
 
 
