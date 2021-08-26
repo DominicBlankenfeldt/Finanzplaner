@@ -42,9 +42,7 @@
         </div>
     </nav>
 
-
     <!-- Finanzplan -->
-
 
     <div class="container p-4">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -72,10 +70,6 @@
             </a>
         </div>
     </div>
-
-
-
-
 
     <!-- Modal Plan erstellen -->
 
@@ -120,7 +114,6 @@
         </div>
     </div>
 
-
     <!-- Modal Settings -->
 
     <div class="modal" tabindex="-1" role="dialog" id="modalPlanSettings">
@@ -147,7 +140,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Modal "plan bearbeiten" -->
 
@@ -196,11 +188,6 @@
 
     <hr>
 
-
-
-
-
-
     <!-- Finanztabelle -->
 
     <div id="Finanztabelle" class="container">
@@ -214,18 +201,21 @@
                         <th class="table-success col-3">Gesamt:</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyEinnahmen">
                     <tr>
-                        <th class="table-success col-3" scope="row">1</th>
+                        <th class="table-success col-3" scope="row"><button type="button" class="btn btn-secondary"><img
+                                    src="trashcan.svg" alt=""></button>
+                        </th>
                         <td class="table-success col-3">Mark</td>
                         <td class="table-success col-3">Otto</td>
-                        <td class="table-success col-3">@mdo</td>
+                        <td class="bg-success col-3">@mdo</td>
                     </tr>
                     <tr>
-                        <th class="table-success col-3" scope="row">2</th>
+                        <th class="table-success col-3" scope="row"><button type="button" class="btn btn-secondary"><img
+                                    src="trashcan.svg" alt=""></button></th>
                         <td class="table-success col-3">Jacob</td>
                         <td class="table-success col-3">Thornton</td>
-                        <td class="table-success col-3">@fat</td>
+                        <td class="bg-success col-3">@fat</td>
                     </tr>
                 </tbody>
             </table>
@@ -244,18 +234,20 @@
                         <th class="table-danger col-3">Gesamt:</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyAusgaben">
                     <tr>
-                        <th class="table-danger col-3" scope="row">1</th>
+                        <th class="table-danger col-3" scope="row"><button type="button" class="btn btn-secondary"><img
+                                    src="trashcan.svg" alt=""></button></th>
                         <td class="table-danger col-3">Mark</td>
                         <td class="table-danger col-3">Otto</td>
-                        <td class="table-danger col-3">@mdo</td>
+                        <td class="bg-danger col-3">@mdo</td>
                     </tr>
                     <tr>
-                        <th class="table-danger col-3" scope="row">2</th>
+                        <th class="table-danger col-3" scope="row"><button type="button" class="btn btn-secondary"><img
+                                    src="trashcan.svg" alt=""></button></th>
                         <td class="table-danger col-3">Jacob</td>
                         <td class="table-danger col-3">Thornton</td>
-                        <td class="table-danger col-3">@fat</td>
+                        <td class="bg-danger col-3">@fat</td>
                     </tr>
                 </tbody>
             </table>
@@ -267,12 +259,6 @@
 
 
     </div>
-
-
-
-
-
-
 
     <!-- Modal Einnahmen -->
 
@@ -305,7 +291,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="einnahmenInTabelleHinzufügen" data-dismiss="modal"
-                        onclick="">Einnahmen
+                        onclick="einnahmeMonatHinzufügen()">Einnahmen
                         hinzufügen</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
                 </div>
@@ -345,23 +331,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="ausgabenInTabelleHinzufügen" data-dismiss="modal"
-                        onclick="">Ausgaben
+                        onclick="ausgabeMonatHinzufügen()">Ausgaben
                         hinzufügen</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
 
 

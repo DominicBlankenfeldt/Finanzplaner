@@ -206,3 +206,89 @@ function planEdit() {
     document.getElementById("2a").innerHTML = newPlanSummeSettings + "€"
     document.getElementById("3a").innerHTML = newPlanNotizSettings
 }
+
+// function zum erstellen von einnahmen
+
+function einnahmeMonatHinzufügen() {
+    let infoPlanDate = document.getElementById("dateEinnahmen").value
+    let infoPlanText = document.getElementById("textNameEinnahme").value
+    let infoPlanSumme = document.getElementById("geldEinnahmen").value
+
+    let infoPlanNewRow = document.createElement("tr")
+    let infoPlanNewTh = document.createElement("th")
+    let infoPlanNewBtn = document.createElement("button")
+    let infoPlanNewBtnImg = document.createElement("img")
+
+    let infoPlanNewDate = document.createElement("td")
+    let infoPlanNewText = document.createElement("td")
+    let infoPlanNewSumme = document.createElement("td")
+
+    document.getElementById("tbodyEinnahmen").appendChild(infoPlanNewRow)
+    infoPlanNewRow.appendChild(infoPlanNewTh)
+    infoPlanNewTh.classList.add("table-success")
+    infoPlanNewTh.classList.add("col-3")
+    infoPlanNewTh.setAttribute("scope", "row")
+    infoPlanNewTh.appendChild(infoPlanNewBtn)
+    infoPlanNewBtn.classList.add("btn")
+    infoPlanNewBtn.classList.add("btn-secondary")
+    infoPlanNewBtn.appendChild(infoPlanNewBtnImg)
+    infoPlanNewBtnImg.src = "trashcan.svg"
+    infoPlanNewRow.appendChild(infoPlanNewDate)
+    infoPlanNewDate.classList.add("table-success")
+    infoPlanNewDate.classList.add("col-3")
+    infoPlanNewDate.innerHTML = infoPlanDate
+    infoPlanNewRow.appendChild(infoPlanNewText)
+    infoPlanNewText.classList.add("table-success")
+    infoPlanNewText.classList.add("col-3")
+    infoPlanNewText.innerHTML = infoPlanText
+    infoPlanNewRow.appendChild(infoPlanNewSumme)
+    infoPlanNewSumme.classList.add("bg-success")
+    infoPlanNewSumme.classList.add("col-3")
+    infoPlanNewSumme.innerHTML = "+" + infoPlanSumme + "€"
+
+
+    console.log("eintrag erfolgreich erstellt")
+}
+
+// function zum erstellen von ausgaben
+
+function ausgabeMonatHinzufügen() {
+    let infoPlanDate = document.getElementById("dateAusgaben").value
+    let infoPlanText = document.getElementById("textNameAusgaben").value
+    let infoPlanSumme = document.getElementById("geldAusgaben").value
+
+    let infoPlanNewRow = document.createElement("tr")
+    let infoPlanNewTh = document.createElement("th")
+    let infoPlanNewBtn = document.createElement("button")
+    let infoPlanNewBtnImg = document.createElement("img")
+
+    let infoPlanNewDate = document.createElement("td")
+    let infoPlanNewText = document.createElement("td")
+    let infoPlanNewSumme = document.createElement("td")
+
+    document.getElementById("tbodyAusgaben").appendChild(infoPlanNewRow)
+    infoPlanNewRow.appendChild(infoPlanNewTh)
+    infoPlanNewTh.classList.add("table-danger")
+    infoPlanNewTh.classList.add("col-3")
+    infoPlanNewTh.setAttribute("scope", "row")
+    infoPlanNewTh.appendChild(infoPlanNewBtn)
+    infoPlanNewBtn.classList.add("btn")
+    infoPlanNewBtn.classList.add("btn-secondary")
+    infoPlanNewBtn.appendChild(infoPlanNewBtnImg)
+    infoPlanNewBtnImg.src = "trashcan.svg"
+    infoPlanNewRow.appendChild(infoPlanNewDate)
+    infoPlanNewDate.classList.add("table-danger")
+    infoPlanNewDate.classList.add("col-3")
+    infoPlanNewDate.innerHTML = infoPlanDate
+    infoPlanNewRow.appendChild(infoPlanNewText)
+    infoPlanNewText.classList.add("table-danger")
+    infoPlanNewText.classList.add("col-3")
+    infoPlanNewText.innerHTML = infoPlanText
+    infoPlanNewRow.appendChild(infoPlanNewSumme)
+    infoPlanNewSumme.classList.add("bg-danger")
+    infoPlanNewSumme.classList.add("col-3")
+    infoPlanNewSumme.innerHTML = "-" + infoPlanSumme + "€"
+
+
+    console.log("eintrag erfolgreich erstellt")
+}
