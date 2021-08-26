@@ -139,6 +139,9 @@ function planEdit() {
 
 // function zum erstellen von einnahmen
 
+let arrayEinnahmen = []
+let summeArrayEinnahmen
+
 function einnahmeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateEinnahmen").value
     let infoPlanText = document.getElementById("textNameEinnahme").value
@@ -172,15 +175,28 @@ function einnahmeMonatHinzufügen() {
     infoPlanNewText.classList.add("col-3")
     infoPlanNewText.innerHTML = infoPlanText
     infoPlanNewRow.appendChild(infoPlanNewSumme)
+    arrayEinnahmen.push(infoPlanSumme)
     infoPlanNewSumme.classList.add("bg-success")
     infoPlanNewSumme.classList.add("col-3")
     infoPlanNewSumme.innerHTML = "+" + infoPlanSumme + "€"
 
 
     console.log("eintrag erfolgreich erstellt")
+
+    summeArrayEinnahmen = 0
+    for (let i = 0; i < arrayEinnahmen.length; i++) {
+        summeArrayEinnahmen += parseInt(arrayEinnahmen[i]);
+        console.log(summeArrayEinnahmen)
+    }
+
+    document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "+" + summeArrayEinnahmen + "€"
+
 }
 
 // function zum erstellen von ausgaben
+
+let arrayAusgaben = []
+let summeArrayAusgaben = 0
 
 function ausgabeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateAusgaben").value
@@ -215,11 +231,21 @@ function ausgabeMonatHinzufügen() {
     infoPlanNewText.classList.add("col-3")
     infoPlanNewText.innerHTML = infoPlanText
     infoPlanNewRow.appendChild(infoPlanNewSumme)
+    arrayAusgaben.push(infoPlanSumme)
     infoPlanNewSumme.classList.add("bg-danger")
     infoPlanNewSumme.classList.add("col-3")
     infoPlanNewSumme.innerHTML = "-" + infoPlanSumme + "€"
 
 
     console.log("eintrag erfolgreich erstellt")
+
+    summeArrayAusgaben = 0
+    for (let i = 0; i < arrayAusgaben.length; i++) {
+        summeArrayAusgaben += parseInt(arrayAusgaben[i]);
+        console.log(summeArrayAusgaben)
+    }
+    document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "-" + summeArrayAusgaben + "€"
+
+
 }
 
