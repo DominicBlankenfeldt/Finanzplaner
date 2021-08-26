@@ -183,7 +183,8 @@ function newPlan() {
 let findId = null
 
 function planDelete() {
-    // document.getElementById("examplePlan").classList.add(active)
+    document.getElementById("examplePlan").classList.add("active")
     node = document.getElementById(findId)
     node.remove()
+    console.log("Plan gelöscht")
 }
