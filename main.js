@@ -115,6 +115,9 @@ function newPlan() {
     let newPlanNameBig2 = document.createElement("h5")
     let newPlanNameBig3 = document.createElement("h5")
 
+    let newProgressBar = document.createElement("div")
+    let newProgressBarDivClasses = document.createElement("div")
+
 
     newPlanElement.classList.add("carousel-item")
     newPlanElement.appendChild(newImgForChild)
@@ -146,8 +149,6 @@ function newPlan() {
     newPlanDivNotiz.innerHTML = "Notiz:"
     newPlanDivNotiz.appendChild(newPlanNameBig3)
 
-    // newPlanElementName.classList.add("m-auto")
-    // newPlanElementName.classList.add("d-block")
     newPlanElementName.classList.add("row")
 
     newPlanElement.setAttribute("id", newPlanName)
@@ -155,6 +156,18 @@ function newPlan() {
     document.getElementById("carousel-inner").appendChild(newPlanElement)
     newPlanElement.setAttribute("data-toggle", "modal")
     newPlanElement.setAttribute("data-target", "#modalPlanSettings")
+
+    newPlanElement.appendChild(newProgressBar)
+    newProgressBar.classList.add("progress")
+    newProgressBar.appendChild(newProgressBarDivClasses)
+    newProgressBarDivClasses.classList.add("progress-bar")
+    newProgressBarDivClasses.classList.add("bg-success")
+    newProgressBarDivClasses.setAttribute("role", "progressbar")
+    newProgressBarDivClasses.setAttribute("style", "width:")
+    newProgressBarDivClasses.setAttribute("aria-valuenow", "")
+    newProgressBarDivClasses.setAttribute("aria-valuemin", "0")
+    newProgressBarDivClasses.setAttribute("aria-valuemax", "100")
+
     newPlanElement.onclick = function () {
         findId = newPlanName;
     }
