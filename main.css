@@ -3,4 +3,19 @@ body {
     background-color: rgb(225, 245, 223) !important;
 }
 
+#modalEinnahmenPlus {
+ background-color: rgb(221, 247, 221);
+}
+
+#modalAusgabenMinus {
+    background-color: rgb(252, 216, 222);
+}
+
+#modalEinnahmenPlusHeader {
+ background-color: rgb(178, 231, 178);
+}
+
+#modalAusgabenMinusHeader {
+    background-color: rgb(236, 177, 187);
+}
 
