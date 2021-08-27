@@ -147,10 +147,11 @@ function einnahmeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateEinnahmen").value
     let infoPlanText = document.getElementById("textNameEinnahme").value
     let infoPlanSumme = document.getElementById("geldEinnahmen").value
+    let infoTrIdEinnahmen = document.getElementById("textNameEinnahme").value
 
     let infoPlanNewRow = document.createElement("tr")
     let infoPlanNewTh = document.createElement("th")
-    let infoPlanNewBtn = document.createElement("button")
+    let infoPlanNewBtnPlus = document.createElement("button")
     let infoPlanNewBtnImg = document.createElement("img")
 
     let infoPlanNewDate = document.createElement("td")
@@ -158,14 +159,17 @@ function einnahmeMonatHinzufügen() {
     let infoPlanNewSumme = document.createElement("td")
 
     document.getElementById("tbodyEinnahmen").appendChild(infoPlanNewRow)
+    infoPlanNewRow.setAttribute("id", infoTrIdEinnahmen)
     infoPlanNewRow.appendChild(infoPlanNewTh)
     infoPlanNewTh.classList.add("table-success")
     infoPlanNewTh.classList.add("col-3")
     infoPlanNewTh.setAttribute("scope", "row")
-    infoPlanNewTh.appendChild(infoPlanNewBtn)
-    infoPlanNewBtn.classList.add("btn")
-    infoPlanNewBtn.classList.add("btn-secondary")
-    infoPlanNewBtn.appendChild(infoPlanNewBtnImg)
+    infoPlanNewTh.appendChild(infoPlanNewBtnPlus)
+    infoPlanNewBtnPlus.classList.add("btn")
+    infoPlanNewBtnPlus.classList.add("btn-secondary")
+    infoPlanNewBtnPlus.setAttribute("data-toggle", "modal")
+    infoPlanNewBtnPlus.setAttribute("data-target", "#deleteRowModalPlus")
+    infoPlanNewBtnPlus.appendChild(infoPlanNewBtnImg)
     infoPlanNewBtnImg.src = "trashcan.svg"
     infoPlanNewRow.appendChild(infoPlanNewDate)
     infoPlanNewDate.classList.add("table-success")
@@ -197,9 +201,13 @@ function einnahmeMonatHinzufügen() {
     document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
 
 
+    infoPlanNewBtnPlus.onclick = function () {
+        rowIdPlus = infoTrIdEinnahmen;
+    }
+
 }
 
-// function zum erstellen von ausgaben
+// function zum erstellen von ausgaben mit Berechnung für die Bilanz
 
 let arrayAusgaben = []
 let summeArrayAusgaben = 0
@@ -209,10 +217,11 @@ function ausgabeMonatHinzufügen() {
     let infoPlanDate = document.getElementById("dateAusgaben").value
     let infoPlanText = document.getElementById("textNameAusgaben").value
     let infoPlanSumme = document.getElementById("geldAusgaben").value
+    let infoTrIdAusgaben = document.getElementById("textNameAusgaben").value
 
     let infoPlanNewRow = document.createElement("tr")
     let infoPlanNewTh = document.createElement("th")
-    let infoPlanNewBtn = document.createElement("button")
+    let infoPlanNewBtnMinus = document.createElement("button")
     let infoPlanNewBtnImg = document.createElement("img")
 
     let infoPlanNewDate = document.createElement("td")
@@ -220,14 +229,17 @@ function ausgabeMonatHinzufügen() {
     let infoPlanNewSumme = document.createElement("td")
 
     document.getElementById("tbodyAusgaben").appendChild(infoPlanNewRow)
+    infoPlanNewRow.setAttribute("id", infoTrIdAusgaben)
     infoPlanNewRow.appendChild(infoPlanNewTh)
     infoPlanNewTh.classList.add("table-danger")
     infoPlanNewTh.classList.add("col-3")
     infoPlanNewTh.setAttribute("scope", "row")
-    infoPlanNewTh.appendChild(infoPlanNewBtn)
-    infoPlanNewBtn.classList.add("btn")
-    infoPlanNewBtn.classList.add("btn-secondary")
-    infoPlanNewBtn.appendChild(infoPlanNewBtnImg)
+    infoPlanNewTh.appendChild(infoPlanNewBtnMinus)
+    infoPlanNewBtnMinus.classList.add("btn")
+    infoPlanNewBtnMinus.classList.add("btn-secondary")
+    infoPlanNewBtnMinus.setAttribute("data-toggle", "modal")
+    infoPlanNewBtnMinus.setAttribute("data-target", "#deleteRowModalMinus")
+    infoPlanNewBtnMinus.appendChild(infoPlanNewBtnImg)
     infoPlanNewBtnImg.src = "trashcan.svg"
     infoPlanNewRow.appendChild(infoPlanNewDate)
     infoPlanNewDate.classList.add("table-danger")
@@ -257,6 +269,29 @@ function ausgabeMonatHinzufügen() {
 
     document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
 
+
+    infoPlanNewBtnMinus.onclick = function () {
+        rowIdMinus = infoTrIdAusgaben;
+    }
+
+
 }
 
 
+// funktion zum btn löschen in den ausgabe und einnahme tabellen
+
+let rowIdPlus = null
+let rowIdMinus = null
+
+
+function deleteRowPlus() {
+    node = document.getElementById(rowIdPlus)
+    node.remove()
+    console.log("Zeile gelöscht")
+}
+
+function deleteRowMinus() {
+    node = document.getElementById(rowIdMinus)
+    node.remove()
+    console.log("Zeile gelöscht")
+}
