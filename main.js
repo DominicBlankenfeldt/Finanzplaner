@@ -48,6 +48,8 @@ function newPlan() {
     let newProgressBar = document.createElement("div")
     let newProgressBarDivClasses = document.createElement("div")
 
+    let sparplanAuswahlmöglichkeit = document.createElement("option")
+
 
     newPlanElement.classList.add("carousel-item")
     newPlanElement.appendChild(newImgForChild)
@@ -103,6 +105,10 @@ function newPlan() {
     newProgressBarDivClasses.setAttribute("aria-valuemin", "0")
     newProgressBarDivClasses.setAttribute("aria-valuemax", "100")
 
+    document.getElementById("sparplanAuswahl").appendChild(sparplanAuswahlmöglichkeit)
+    sparplanAuswahlmöglichkeit.setAttribute("id", newPlanName + "1")
+    sparplanAuswahlmöglichkeit.innerHTML = newPlanName
+
     newPlanElement.onclick = function () {
         findId = newPlanName;
     }
@@ -120,6 +126,8 @@ let findId = null
 function planDelete() {
     document.getElementById("examplePlan").classList.add("active")
     node = document.getElementById(findId)
+    node.remove()
+    node = document.getElementById(findId + "1")
     node.remove()
     console.log("Plan gelöscht")
 }
