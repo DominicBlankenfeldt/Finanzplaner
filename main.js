@@ -34,16 +34,19 @@ function newPlan() {
     let newPlanErstellenDate = document.getElementById("erstellenDate").value
     let newPlanGeld = document.getElementById("geld").value
     let newPlanNotiz = document.getElementById("notiz").value
+    let newPlanGeldGespart = "0 €"
 
     let newPlanDivDate = document.createElement("div")
     let newPlanDivGeld = document.createElement("div")
     let newPlanDivNotiz = document.createElement("div")
     let newPlanDivName = document.createElement("div")
+    let newPlanDivGeldGespart = document.createElement("div")
 
     let newPlanNameBig0 = document.createElement("h5")
     let newPlanNameBig1 = document.createElement("h5")
     let newPlanNameBig2 = document.createElement("h5")
     let newPlanNameBig3 = document.createElement("h5")
+    let newPlanNameBig4 = document.createElement("h5")
 
     let newProgressBar = document.createElement("div")
     let newProgressBarDivClasses = document.createElement("div")
@@ -80,9 +83,16 @@ function newPlan() {
     newPlanNameBig3.innerHTML = newPlanNotiz
     newPlanNameBig3.setAttribute("id", "3a")
     newPlanElementName.appendChild(newPlanDivNotiz)
-    newPlanDivNotiz.classList.add("col-12")
+    newPlanDivNotiz.classList.add("col-8")
     newPlanDivNotiz.innerHTML = "Notiz:"
     newPlanDivNotiz.appendChild(newPlanNameBig3)
+
+    newPlanNameBig4.innerHTML = newPlanGeldGespart
+    newPlanNameBig4.setAttribute("id", "4a")
+    newPlanElementName.appendChild(newPlanDivGeldGespart)
+    newPlanDivGeldGespart.classList.add("col-4")
+    newPlanDivGeldGespart.innerHTML = "Aktuell gespart:"
+    newPlanDivGeldGespart.appendChild(newPlanNameBig4)
 
     newPlanElementName.classList.add("row")
 
