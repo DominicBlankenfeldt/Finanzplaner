@@ -8,7 +8,6 @@ function newRowPlus() {
     newRowElement.innerHTML = "test"
     document.getElementById("income").appendChild(newRowElement);
     console.log('einnahme hinzugefügt');
-
 }
 
 
@@ -19,89 +18,73 @@ function newRowMinus() {
     newRowElement.innerHTML = "test"
     document.getElementById("outcome").appendChild(newRowElement);
     console.log('ausgabe hinzugefügt');
-
 }
 
 // funktion um neuen plan zu erstellen
 
 function newPlan() {
-
     let newPlanElement = document.createElement("div");
     let newImgForChild = document.createElement("img");
     let newPlanElementName = document.createElement("div");
     let newPlanName = document.getElementById("textName").value
-
     let newPlanErstellenDate = document.getElementById("erstellenDate").value
     let newPlanGeld = document.getElementById("geld").value
     let newPlanNotiz = document.getElementById("notiz").value
     let newPlanGeldGespart = "0 €"
-
     let newPlanDivDate = document.createElement("div")
     let newPlanDivGeld = document.createElement("div")
     let newPlanDivNotiz = document.createElement("div")
     let newPlanDivName = document.createElement("div")
     let newPlanDivGeldGespart = document.createElement("div")
-
     let newPlanNameBig0 = document.createElement("h5")
     let newPlanNameBig1 = document.createElement("h5")
     let newPlanNameBig2 = document.createElement("h5")
     let newPlanNameBig3 = document.createElement("h5")
     let newPlanNameBig4 = document.createElement("h5")
-
     let newProgressBar = document.createElement("div")
     let newProgressBarDivClasses = document.createElement("div")
-
     let sparplanAuswahlmöglichkeit = document.createElement("option")
-
 
     newPlanElement.classList.add("carousel-item")
     newPlanElement.appendChild(newImgForChild)
     newImgForChild.src = "cash.svg"
     newImgForChild.classList.add("m-auto")
     newImgForChild.classList.add("d-block")
-
     newPlanNameBig0.innerHTML = newPlanName
     newPlanNameBig0.setAttribute("id", "1a")
     newPlanElementName.appendChild(newPlanDivName)
     newPlanDivName.classList.add("col-4")
     newPlanDivName.innerHTML = "Name:"
     newPlanDivName.appendChild(newPlanNameBig0)
-
     newPlanNameBig1.innerHTML = newPlanErstellenDate
     newPlanElementName.appendChild(newPlanDivDate)
     newPlanDivDate.classList.add("col-4")
     newPlanDivDate.innerHTML = "Erstellt am:"
     newPlanDivDate.appendChild(newPlanNameBig1)
-
     newPlanNameBig2.innerHTML = newPlanGeld + "€"
     newPlanNameBig2.setAttribute("id", "2a")
     newPlanElementName.appendChild(newPlanDivGeld)
     newPlanDivGeld.classList.add("col-4")
     newPlanDivGeld.innerHTML = "Sparziel in €:"
     newPlanDivGeld.appendChild(newPlanNameBig2)
-
     newPlanNameBig3.innerHTML = newPlanNotiz
     newPlanNameBig3.setAttribute("id", "3a")
     newPlanElementName.appendChild(newPlanDivNotiz)
     newPlanDivNotiz.classList.add("col-8")
     newPlanDivNotiz.innerHTML = "Notiz:"
     newPlanDivNotiz.appendChild(newPlanNameBig3)
-
     newPlanNameBig4.innerHTML = newPlanGeldGespart
     newPlanNameBig4.setAttribute("id", "4a")
     newPlanElementName.appendChild(newPlanDivGeldGespart)
     newPlanDivGeldGespart.classList.add("col-4")
     newPlanDivGeldGespart.innerHTML = "Aktuell gespart:"
     newPlanDivGeldGespart.appendChild(newPlanNameBig4)
-
     newPlanElementName.classList.add("row")
-
     newPlanElement.setAttribute("id", newPlanName)
     newPlanElement.appendChild(newPlanElementName)
     document.getElementById("carousel-inner").appendChild(newPlanElement)
     newPlanElement.setAttribute("data-toggle", "modal")
     newPlanElement.setAttribute("data-target", "#modalPlanSettings")
-
     newPlanElement.appendChild(newProgressBar)
     newProgressBar.classList.add("progress")
     newProgressBar.appendChild(newProgressBarDivClasses)
@@ -124,10 +107,7 @@ function newPlan() {
     }
 
     console.log("neuer Plan erfolgreich erstellt")
-
-
 }
-
 
 // löschenfunktion für ausgewählten plan
 
@@ -141,7 +121,6 @@ function planDelete() {
     node.remove()
     console.log("Plan gelöscht")
 }
-
 
 // function für das bearbeiten von Plänen und deren enthaltenen Informationen
 
@@ -166,12 +145,10 @@ function einnahmeMonatHinzufügen() {
     let infoPlanText = document.getElementById("textNameEinnahme").value
     let infoPlanSumme = document.getElementById("geldEinnahmen").value
     let infoTrIdEinnahmen = document.getElementById("textNameEinnahme").value
-
     let infoPlanNewRow = document.createElement("tr")
     let infoPlanNewTh = document.createElement("th")
     let infoPlanNewBtnPlus = document.createElement("button")
     let infoPlanNewBtnImg = document.createElement("img")
-
     let infoPlanNewDate = document.createElement("td")
     let infoPlanNewText = document.createElement("td")
     let infoPlanNewSumme = document.createElement("td")
@@ -203,7 +180,6 @@ function einnahmeMonatHinzufügen() {
     infoPlanNewSumme.classList.add("col-3")
     infoPlanNewSumme.innerHTML = "+" + infoPlanSumme + "€"
 
-
     console.log("eintrag einnahmen erfolgreich erstellt")
 
     summeArrayEinnahmen = 0
@@ -211,18 +187,12 @@ function einnahmeMonatHinzufügen() {
         summeArrayEinnahmen += parseInt(arrayEinnahmen[i]);
         console.log(summeArrayEinnahmen)
     }
-
     document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "+" + summeArrayEinnahmen + "€"
-
     let summeGesamtBilanz = parseInt(summeArrayEinnahmen) - parseInt(summeArrayAusgaben)
-
     document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
-
-
     infoPlanNewBtnPlus.onclick = function () {
         rowIdPlus = infoTrIdEinnahmen;
     }
-
 }
 
 // function zum erstellen von ausgaben mit Berechnung für die Bilanz
@@ -236,12 +206,10 @@ function ausgabeMonatHinzufügen() {
     let infoPlanText = document.getElementById("textNameAusgaben").value
     let infoPlanSumme = document.getElementById("geldAusgaben").value
     let infoTrIdAusgaben = document.getElementById("textNameAusgaben").value
-
     let infoPlanNewRow = document.createElement("tr")
     let infoPlanNewTh = document.createElement("th")
     let infoPlanNewBtnMinus = document.createElement("button")
     let infoPlanNewBtnImg = document.createElement("img")
-
     let infoPlanNewDate = document.createElement("td")
     let infoPlanNewText = document.createElement("td")
     let infoPlanNewSumme = document.createElement("td")
@@ -273,7 +241,6 @@ function ausgabeMonatHinzufügen() {
     infoPlanNewSumme.classList.add("col-3")
     infoPlanNewSumme.innerHTML = "-" + infoPlanSumme + "€"
 
-
     console.log("eintrag ausgaben erfolgreich erstellt")
 
     summeArrayAusgaben = 0
@@ -287,20 +254,15 @@ function ausgabeMonatHinzufügen() {
 
     document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
 
-
     infoPlanNewBtnMinus.onclick = function () {
         rowIdMinus = infoTrIdAusgaben;
     }
-
-
 }
-
 
 // funktion zum btn löschen in den ausgabe und einnahme tabellen
 
 let rowIdPlus = null
 let rowIdMinus = null
-
 
 function deleteRowPlus() {
     node = document.getElementById(rowIdPlus)
