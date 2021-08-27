@@ -178,6 +178,7 @@ function einnahmeMonatHinzufügen() {
     arrayEinnahmen.push(infoPlanSumme)
     infoPlanNewSumme.classList.add("bg-success")
     infoPlanNewSumme.classList.add("col-3")
+    infoPlanNewSumme.setAttribute("id", infoTrIdEinnahmen + "1")
     infoPlanNewSumme.innerHTML = "+" + infoPlanSumme + "€"
 
     console.log("eintrag einnahmen erfolgreich erstellt")
@@ -192,6 +193,7 @@ function einnahmeMonatHinzufügen() {
     document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
     infoPlanNewBtnPlus.onclick = function () {
         rowIdPlus = infoTrIdEinnahmen;
+        zahlenId = infoTrIdEinnahmen + "1";
     }
 }
 
@@ -201,7 +203,8 @@ let arrayAusgaben = []
 let summeArrayAusgaben = 0
 let gesamtAusgaben = 0
 
-function ausgabeMonatHinzufügen() {
+function ausgabeMonatHinzufügen(event) {
+    event.preventDefault()
     let infoPlanDate = document.getElementById("dateAusgaben").value
     let infoPlanText = document.getElementById("textNameAusgaben").value
     let infoPlanSumme = document.getElementById("geldAusgaben").value
@@ -236,16 +239,20 @@ function ausgabeMonatHinzufügen() {
     infoPlanNewText.classList.add("col-3")
     infoPlanNewText.innerHTML = infoPlanText
     infoPlanNewRow.appendChild(infoPlanNewSumme)
-    arrayAusgaben.push(infoPlanSumme)
+    arrayAusgaben.push({
+        id: infoTrIdAusgaben,
+        value: infoPlanSumme
+    })
     infoPlanNewSumme.classList.add("bg-danger")
     infoPlanNewSumme.classList.add("col-3")
+    infoPlanNewSumme.setAttribute("id", infoTrIdAusgaben + "1")
     infoPlanNewSumme.innerHTML = "-" + infoPlanSumme + "€"
 
     console.log("eintrag ausgaben erfolgreich erstellt")
 
     summeArrayAusgaben = 0
     for (let i = 0; i < arrayAusgaben.length; i++) {
-        summeArrayAusgaben += parseInt(arrayAusgaben[i]);
+        summeArrayAusgaben += parseInt(arrayAusgaben[i].value);
         console.log(summeArrayAusgaben)
     }
     document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "-" + summeArrayAusgaben + "€"
@@ -256,22 +263,111 @@ function ausgabeMonatHinzufügen() {
 
     infoPlanNewBtnMinus.onclick = function () {
         rowIdMinus = infoTrIdAusgaben;
+        zahlenId = infoTrIdAusgaben + "1";
     }
+    $("#modalCreateMinus").modal("hide")
 }
 
 // funktion zum btn löschen in den ausgabe und einnahme tabellen
 
+let zahlenId = null
 let rowIdPlus = null
 let rowIdMinus = null
 
 function deleteRowPlus() {
+
+    // let berechnungZahl = document.getElementById(zahlenId).value
+    // for (let i = 0; i < arrayAusgaben.length; i++) {
+    //     summeArrayAusgaben += parseInt(arrayAusgaben[i]);
+    //     console.log(summeArrayAusgaben)
+
+
     node = document.getElementById(rowIdPlus)
     node.remove()
+
+    arrayAusgaben = arrayAusgaben.filter(e => e.id !== rowIdPlus)
+
+
+    summeArrayEinnahmen = 0
+    // if (arrayEinnahmen.length == 0) {
+    for (let i = 0; i < arrayEinnahmen.length; i++) {
+        summeArrayEinnahmen += parseInt(arrayEinnahmen[i].value);
+        console.log(summeArrayEinnahmen)
+    }
+    document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "+" + summeArrayEinnahmen + "€"
+
+    let summeGesamtBilanz = parseInt(summeArrayEinnahmen) - parseInt(summeArrayAusgaben)
+
+    document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
+    // }
+    // else {
+    //     document.getElementById("anzeigeBilanz").innerHTML = "0 €"
+    //     document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "0 €"
+    // }
+    console.log(document.getElementById("einnahmenGesamtZeigen").value)
+
+    if (!document.getElementById("einnahmenGesamtZeigen").value) {
+        document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "0 €"
+        if (!document.getElementById("ausgabenGesamtZeigen").value) {
+            document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "0 €"
+            document.getElementById("anzeigeBilanz").innerHTML = "0" + "€"
+        }
+
+    }
+
     console.log("Zeile gelöscht")
 }
 
+
 function deleteRowMinus() {
+
+
+
     node = document.getElementById(rowIdMinus)
     node.remove()
+
+    arrayAusgaben = arrayAusgaben.filter(e => e.id !== rowIdMinus)
+
+    // if (arrayEinnahmen.length == 0) {
+
+    summeArrayAusgaben = 0
+    for (let i = 0; i < arrayAusgaben.length; i++) {
+        summeArrayAusgaben += parseInt(arrayAusgaben[i].value);
+        console.log(summeArrayAusgaben)
+    }
+    document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "-" + summeArrayAusgaben + "€"
+
+    let summeGesamtBilanz = parseInt(summeArrayEinnahmen) - parseInt(summeArrayAusgaben)
+
+    document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
+    // }
+    // else {
+    //     document.getElementById("anzeigeBilanz").innerHTML = "0 €"
+    // }
+    console.log(document.getElementById("einnahmenGesamtZeigen").innerHTML)
+
+    if (!document.getElementById("ausgabenGesamtZeigen").value) {
+        document.getElementById("ausgabenGesamtZeigen").innerHTML = "Gesamt:" + " " + "0 €"
+        console.log(document.getElementById("einnahmenGesamtZeigen").value)
+        if (!document.getElementById("einnahmenGesamtZeigen").value) {
+            document.getElementById("einnahmenGesamtZeigen").innerHTML = "Gesamt:" + " " + "0 €"
+            document.getElementById("anzeigeBilanz").innerHTML = "0" + "€"
+        }
+        else {
+            document.getElementById("anzeigeBilanz").innerHTML = summeGesamtBilanz + "€"
+        }
+
+    }
+
     console.log("Zeile gelöscht")
 }
+
+
+// function um für einen bestimmten plan zu sparen
+
+
+let summeSparplan = []
+
+document.getElementById("sparplanAuswahl").value
+
+
